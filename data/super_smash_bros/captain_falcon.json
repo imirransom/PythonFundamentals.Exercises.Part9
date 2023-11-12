@@ -1,0 +1,8 @@
+{
+    "name": "Captain Falcon",
+    "neutral_special": "Falcon Punch",
+    "side_special": "Raptor Boost",
+    "up_special": "Falcon Dive",
+    "down_special": "Falcon Kick",
+    "final_smash": "Blue Falcon"
+}
