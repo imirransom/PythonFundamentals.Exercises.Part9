@@ -1,6 +1,5 @@
 import json
 
-
 def read_json(file_json):
     """
     This function will open json files
@@ -28,7 +27,7 @@ def read_all_json_files(json_file):
 # then be saved in a list with the read_all_json_files function
 read_all_json_files("mario.json")
 read_all_json_files("link.json")
-yoshi = read_all_json_files("yoshi.json")
+# read_all_json_files("yoshi.json")
 
 # Iterating through the list that is holding the json files
 # in a dictionary
@@ -46,7 +45,17 @@ captain_falcon = {
     "down_special": "Falcon Kick",
     "final_smash": "Blue Falcon"
 }
-def write_pickle(file_name):
+yoshi = {
+    "name": "Yoshi",
+    "neutral_special": "Egg Lay",
+    "side_special": "Egg Roll",
+    "up_special": "Yoshi Throw",
+    "down_special": "Yoshi Bomb",
+    "final_smash": "Super Dragon"
+}
+
+
+def write_pickle(file, file_name):
     """
     This function takes in a file path as a parameter and the
     function writes the contents of the json file to a file
@@ -54,11 +63,11 @@ def write_pickle(file_name):
     :param file_name:
     :return:
     """
-    with open("super_smash_characters.pickle", "w") as f:
+    with open(file, "w") as f:
         character = json.dump(file_name, f)
         return character
 
-
+# write_pickle(yoshi_pickled)
 def load_pickle(character_data):
     """
     When given a file path as the parameter, the function will
@@ -70,16 +79,21 @@ def load_pickle(character_data):
         character = json.load(f)
     return character
 
+# y = load_pickle(load_yoshi)
+
+
 # I passed the captain_falcon dict (json file) into the function
 # write pickle so that it can save this json file in it
-captain_falcon_json = write_pickle(captain_falcon)
 
+write_pickle("super_smash_characters.pickle", yoshi)
+write_pickle("super_smash_characters.pickle", captain_falcon)
 # This is taking the pickled file and loading it to be
 # printed to the console. It has the file I wrote into
 # it and will return that data. saved to a
 # variable, so I can iterate through it
-cp_fal = load_pickle("super_smash_characters.pickle")
 
+y = load_pickle("super_smash_characters.pickle")
+cp_fal = load_pickle("super_smash_characters.pickle")
 # Iterates through the file and prints to the console
 for key, value in cp_fal.items():
     print(key, value)
